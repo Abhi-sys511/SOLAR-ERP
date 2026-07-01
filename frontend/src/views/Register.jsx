@@ -85,7 +85,7 @@ export default function Register() {
     setError('');
     setLoading(true);
     try {
-      await axios.post('http://localhost:8000/api/auth/register/', formData);
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register/`, formData);
       if (formData.role === 'CUSTOMER') {
         // Customers go to the interest form on the landing page
         navigate('/', { state: { step: 'interest', email: formData.email } });
@@ -107,7 +107,7 @@ export default function Register() {
 
   return (
     <div className="solar-auth-page animate-fade-in">
-      
+
       {/* ── Top Bar ── */}
       <header className="solar-top-bar">
         <div className="solar-logo">
@@ -117,7 +117,7 @@ export default function Register() {
             <span>Smart Solutions. Bright Future.</span>
           </div>
         </div>
-        
+
         <div className="solar-top-badges">
           <div className="solar-top-badge">
             <Icons.Secure />
@@ -140,7 +140,7 @@ export default function Register() {
 
       {/* ── Main Split Screen Container ── */}
       <div className="solar-split-container">
-        
+
         {/* Left Column: Hero & Features */}
         <section className="solar-left-panel">
           <div>
@@ -153,10 +153,10 @@ export default function Register() {
             <p className="solar-hero-subtitle">
               Manage your solar business efficiently – from leads to installation and beyond. Join our ecosystem to track and scale your green projects.
             </p>
-            
+
             {/* Feature Cards Grid */}
             <div className="solar-features-grid">
-              
+
               <div className="solar-feature-card green">
                 <div className="solar-feature-icon">👤</div>
                 <div className="solar-feature-info">
@@ -164,7 +164,7 @@ export default function Register() {
                   <p>Manage leads, quotations, and projects seamlessly.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card blue">
                 <div className="solar-feature-icon">📋</div>
                 <div className="solar-feature-info">
@@ -172,7 +172,7 @@ export default function Register() {
                   <p>Track installation progress in real-time.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card orange">
                 <div className="solar-feature-icon">🎧</div>
                 <div className="solar-feature-info">
@@ -180,7 +180,7 @@ export default function Register() {
                   <p>Raise tickets and get quick customer support.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card purple">
                 <div className="solar-feature-icon">📊</div>
                 <div className="solar-feature-info">
@@ -188,7 +188,7 @@ export default function Register() {
                   <p>Get detailed reports and grow your business.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card teal">
                 <div className="solar-feature-icon">🛡️</div>
                 <div className="solar-feature-info">
@@ -196,7 +196,7 @@ export default function Register() {
                   <p>Role-based access and data security ensured.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card lightgreen">
                 <div className="solar-feature-icon">🌿</div>
                 <div className="solar-feature-info">
@@ -204,7 +204,7 @@ export default function Register() {
                   <p>Contribute to a cleaner and greener tomorrow.</p>
                 </div>
               </div>
-              
+
             </div>
           </div>
 
@@ -232,7 +232,7 @@ export default function Register() {
         {/* Right Column: Registration Card */}
         <section className="solar-right-panel">
           <div className="solar-form-card animate-fade-in">
-            
+
             <h2>Welcome to <span className="accent-green">Solar ERP</span></h2>
             <p className="solar-form-subtitle">Create your account to start managing your solar operations.</p>
 

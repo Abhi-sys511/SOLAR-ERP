@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
-const API = 'http://localhost:8000/api';
+const API = `${import.meta.env.VITE_API_URL}/api`;
 
 // Inline SVGs matching the professional design reference
 const Icons = {
@@ -140,7 +140,7 @@ export default function LandingPage() {
 
   return (
     <div className="solar-auth-page animate-fade-in">
-      
+
       {/* ── Top Bar ── */}
       <header className="solar-top-bar">
         <div className="solar-logo">
@@ -150,7 +150,7 @@ export default function LandingPage() {
             <span>Smart Solutions. Bright Future.</span>
           </div>
         </div>
-        
+
         <div className="solar-top-badges">
           <div className="solar-top-badge">
             <Icons.Secure />
@@ -173,7 +173,7 @@ export default function LandingPage() {
 
       {/* ── Main Split Screen Container ── */}
       <div className="solar-split-container">
-        
+
         {/* Left Column: Hero & Features */}
         <section className="solar-left-panel">
           <div>
@@ -186,10 +186,10 @@ export default function LandingPage() {
             <p className="solar-hero-subtitle">
               Manage your solar business efficiently – from leads to installation and beyond. Join our ecosystem to track and scale your green projects.
             </p>
-            
+
             {/* Feature Cards Grid */}
             <div className="solar-features-grid">
-              
+
               <div className="solar-feature-card green">
                 <div className="solar-feature-icon">👤</div>
                 <div className="solar-feature-info">
@@ -197,7 +197,7 @@ export default function LandingPage() {
                   <p>Manage leads, quotations, and projects seamlessly.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card blue">
                 <div className="solar-feature-icon">📋</div>
                 <div className="solar-feature-info">
@@ -205,7 +205,7 @@ export default function LandingPage() {
                   <p>Track installation progress in real-time.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card orange">
                 <div className="solar-feature-icon">🎧</div>
                 <div className="solar-feature-info">
@@ -213,7 +213,7 @@ export default function LandingPage() {
                   <p>Raise tickets and get quick customer support.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card purple">
                 <div className="solar-feature-icon">📊</div>
                 <div className="solar-feature-info">
@@ -221,7 +221,7 @@ export default function LandingPage() {
                   <p>Get detailed reports and grow your business.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card teal">
                 <div className="solar-feature-icon">🛡️</div>
                 <div className="solar-feature-info">
@@ -229,7 +229,7 @@ export default function LandingPage() {
                   <p>Role-based access and data security ensured.</p>
                 </div>
               </div>
-              
+
               <div className="solar-feature-card lightgreen">
                 <div className="solar-feature-icon">🌿</div>
                 <div className="solar-feature-info">
@@ -237,7 +237,7 @@ export default function LandingPage() {
                   <p>Contribute to a cleaner and greener tomorrow.</p>
                 </div>
               </div>
-              
+
             </div>
           </div>
 
@@ -265,7 +265,7 @@ export default function LandingPage() {
         {/* Right Column: Auth/Registration Forms */}
         <section className="solar-right-panel">
           <div className="solar-form-card animate-fade-in">
-            
+
             {/* Step Indicator */}
             {regData.role === 'CUSTOMER' && step !== 'done' && (
               <div className="solar-steps-indicator">
@@ -300,7 +300,7 @@ export default function LandingPage() {
               <>
                 <h2>Welcome to <span className="accent-green">Solar ERP</span></h2>
                 <p className="solar-form-subtitle">Create your account to start managing your solar operations.</p>
-                
+
                 {regError && (
                   <div style={{
                     color: 'var(--danger)', marginBottom: '1.25rem', textAlign: 'center',
@@ -325,7 +325,7 @@ export default function LandingPage() {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="solar-input-container">
                     <label className="solar-input-label">Email Address</label>
                     <div className="solar-input-wrapper">
@@ -472,7 +472,7 @@ export default function LandingPage() {
                     {leadLoading ? 'Submitting…' : 'Submit Inquiry'}
                     <Icons.ChevronRight />
                   </button>
-                  
+
                   <button
                     type="button"
                     className="btn btn-secondary"
